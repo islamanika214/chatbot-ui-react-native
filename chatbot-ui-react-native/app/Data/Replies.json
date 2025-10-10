@@ -1,0 +1,17 @@
+[
+    {
+        "id": "r1",
+        "text": "Hi! I’m your Graphland assistant. Ask me anything about our apps, APIs, or design system.",
+        "meta": { "tags": ["intro", "welcome"] }
+    },
+    {
+        "id": "r2",
+        "text": "Sure, here’s a quick summary:\n• Cross-platform RN\n• Fast iteration\n• Scalable architecture",
+        "meta": { "tags": ["summary"] }
+    },
+    {
+        "id": "r3",
+        "text": "Your personal assistant is here!",
+        "meta": { "tags": ["tip"] }
+    }
+]
