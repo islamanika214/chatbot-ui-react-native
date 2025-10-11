@@ -3,7 +3,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function ChatHeader() {
     const insets = useSafeAreaInsets();
-    const headerHeight = 22;
+    const headerHeight = 40;
 
     return (
         <View style={[styles.container, { height: headerHeight + insets.top }]}>
