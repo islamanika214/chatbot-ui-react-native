@@ -12,7 +12,7 @@ This is a React Native chatbot app with typing indicators, streaming responses, 
 - [Tech Stack](#tech-stack)  
 - [Installation](#installation)  
 - [Usage](#usage)
-- [Known Issues / Trade-offs](#Known Issues / Trade-offs)
+- [Known Issues / Trade-offs](#known-issues)
 - [Contributors](#contributors)  
 
 
