@@ -83,7 +83,7 @@ It demonstrates key frontend engineering concepts like:
    ```bash
    npx expo start
    ```
-   <a href="https://github.com/islamanika214/chatbot-ui-react-native/blob/main/QR.PNG"><img src="https://img.shields.io/badge/Scan%20QR%20Code-purple?style=for-the-badge" alt="Scan QR Code" style="height: 20px;" /></a> with Expo Go on your phone to run the app.
+   Scan QR Code from here with Expo Go on your phone to run the app.<a href="https://github.com/islamanika214/chatbot-ui-react-native/blob/main/QR.PNG"><img src="https://img.shields.io/badge/Scan%20QR%20Code-purple?style=for-the-badge" alt="QR Code"  /></a> 
 
 
 	 
