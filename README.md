@@ -95,7 +95,10 @@ It demonstrates key frontend engineering concepts like:
 - Watch the streaming response appear letter by letter.
 - Scroll automatically stays at the latest message.
 
-	
+
+## Known Issues / Trade-offs
+
+- Bot replies are pre-defined
 
 ## Author
 
