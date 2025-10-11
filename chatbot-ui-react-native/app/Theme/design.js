@@ -1,10 +1,10 @@
 export const colors = {
-    primary: "#671ddf",
+    primary: "#a577eeff",
     background: "#fff",
-    userBubble: "#671ddf",
+    userBubble: "#a577eeff",
     botBubble: "#f2f2f2",
     textUser: "#fff",
-    textBot: "#671ddf",
+    textBot: "#a577eeff",
 };
 
 export const spacing = {

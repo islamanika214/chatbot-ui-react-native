@@ -1,23 +1,33 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StatusBar, StyleSheet, Text, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function ChatHeader() {
+    const insets = useSafeAreaInsets();
+    const headerHeight = 22;
+
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Graphland Chat</Text>
+        <View style={[styles.container, { height: headerHeight + insets.top }]}>
+            <StatusBar barStyle="light-content" backgroundColor="#a577eeff" />
+            <View style={[styles.inner, { height: headerHeight }]}>
+                <Text style={styles.title}>Graphland Chat</Text>
+            </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        padding: 16,
-        backgroundColor: "#671ddf",
-        alignItems: "center",
+        backgroundColor: "#a577eeff",
+        width: "100%",
+    },
+    inner: {
+        flex: 1,
         justifyContent: "center",
+        alignItems: "center",
     },
     title: {
         color: "#fff",
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: "bold",
     },
 });

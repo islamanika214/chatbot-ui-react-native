@@ -27,7 +27,14 @@ export default function MessageBubble({
                             { backgroundColor: avatarColor, marginLeft: 8 },
                         ]}
                     >
-                        <Text style={styles.avatarText}>{avatarText}</Text>
+                        <Text
+                            style={[
+                                styles.avatarText,
+                                { color: isUser ? "#fff" : "#a577eeff" },
+                            ]}
+                        >
+                            {avatarText}
+                        </Text>
                     </View>
                 )}
 
@@ -68,7 +75,14 @@ export default function MessageBubble({
                             { backgroundColor: avatarColor, marginRight: 8 },
                         ]}
                     >
-                        <Text style={styles.avatarText}>{avatarText}</Text>
+                        <Text
+                            style={[
+                                styles.avatarText,
+                                { color: isUser ? "#fff" : "#a577eeff" },
+                            ]}
+                        >
+                            {avatarText}
+                        </Text>
                     </View>
                 )}
             </View>
@@ -93,7 +107,7 @@ const styles = StyleSheet.create({
         fontSize: 10,
         marginTop: 6,
         alignSelf: "flex-end",
-        color: "#666",
+        color: "#beb4c9ff",
         opacity: 0.75,
     },
     avatar: {
@@ -104,7 +118,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     avatarText: {
-        color: "#fff",
+        // color: "#fff",
         fontWeight: "bold",
     },
 });

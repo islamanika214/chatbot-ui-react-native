@@ -1,6 +1,17 @@
 import { useRef, useState } from "react";
-import { FlatList, KeyboardAvoidingView, Platform } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar } from "react-native";
+
+import {
+    FlatList,
+    KeyboardAvoidingView,
+    Platform,
+    Text,
+    TouchableOpacity,
+} from "react-native";
+import {
+    SafeAreaView,
+    useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
 import replies from "../data/replies.json";
 import ChatHeader from "../module/ChatHeader";
@@ -10,6 +21,7 @@ import TypingIndicator from "../module/TypingIndicator";
 import { colors } from "../theme/design";
 
 export default function ChatScreen() {
+    const insets = useSafeAreaInsets();
     const [messages, setMessages] = useState([
         {
             _id: 1,
@@ -107,8 +119,13 @@ export default function ChatScreen() {
             <KeyboardAvoidingView
                 style={{ flex: 1 }}
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
-                keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 80}
+                keyboardVerticalOffset={Platform.OS === "ios" ? insets.top : 0}
             >
+                <StatusBar
+                    barStyle="light-content"
+                    backgroundColor="#a577eeff"
+                    translucent={false}
+                />
                 <ChatHeader />
                 <FlatList
                     ref={flatRef}
@@ -116,7 +133,6 @@ export default function ChatScreen() {
                     keyExtractor={(item) => item._id.toString()}
                     renderItem={({ item, index }) => {
                         const prev = messages[index + 1];
-
                         const showAvatar = !prev || prev.userId !== item.userId;
                         const showTimestamp =
                             !prev || prev.userId !== item.userId;
@@ -132,14 +148,11 @@ export default function ChatScreen() {
                     inverted
                     keyboardShouldPersistTaps="handled"
                     keyboardDismissMode="on-drag"
-                    contentContainerStyle={{ paddingTop: 8, paddingBottom: 16 }}
-                    onContentSizeChange={() =>
-                        flatRef.current?.scrollToOffset({
-                            offset: 0,
-                            animated: true,
-                        })
-                    }
+                    contentContainerStyle={{
+                        paddingBottom: insets.bottom || 12,
+                    }}
                 />
+
                 {typing && <TypingIndicator />}
                 {streaming && (
                     <TouchableOpacity
@@ -154,22 +167,6 @@ export default function ChatScreen() {
                             if (typingIntervalRef.current) {
                                 clearInterval(typingIntervalRef.current);
                                 typingIntervalRef.current = null;
-
-                                setMessages((prev) => {
-                                    const idx = prev.findIndex(
-                                        (m) => m.userId === 2 && m.text === ""
-                                    );
-                                    if (idx === -1) return prev;
-                                    const updated = {
-                                        ...prev[idx],
-                                        text: replies[replyIndex.current - 1]
-                                            .text,
-                                    };
-                                    const next = [...prev];
-                                    next[idx] = updated;
-                                    return next;
-                                });
-
                                 setStreaming(false);
                                 setTyping(false);
                             }
