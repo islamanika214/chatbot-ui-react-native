@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import ChatScreen from "../Pages/ChatScreen";
+import ChatScreen from "../pages/ChatScreen";
 export default function App() {
     return (
         <View style={styles.container}>

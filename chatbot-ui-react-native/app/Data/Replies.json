@@ -11,7 +11,7 @@
     },
     {
         "id": "r3",
-        "text": "Your personal assistant is here!",
+        "text": "Pro tip: keep components small and testable. Composition > inheritance.",
         "meta": { "tags": ["tip"] }
     }
 ]

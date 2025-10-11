@@ -1,7 +1,7 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { useState } from "react";
 import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
-import { colors } from "../Theme/design";
+import { colors } from "../theme/design";
 
 export default function InputBar({ onSend }) {
     const [text, setText] = useState("");

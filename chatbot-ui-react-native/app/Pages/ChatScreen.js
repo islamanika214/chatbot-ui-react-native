@@ -2,12 +2,12 @@ import { useRef, useState } from "react";
 import { FlatList, KeyboardAvoidingView, Platform } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import replies from "../Data/Replies.json";
-import ChatHeader from "../Module/ChatHeader";
-import InputBar from "../Module/Input";
-import MessageBubble from "../Module/MessageBubble";
-import TypingIndicator from "../Module/TypingIndicator";
-import { colors } from "../Theme/design";
+import replies from "../data/replies.json";
+import ChatHeader from "../module/ChatHeader";
+import InputBar from "../module/Input";
+import MessageBubble from "../module/MessageBubble";
+import TypingIndicator from "../module/TypingIndicator";
+import { colors } from "../theme/design";
 
 export default function ChatScreen() {
     const [messages, setMessages] = useState([

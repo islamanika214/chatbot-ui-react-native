@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { colors, radii, spacing } from "../Theme/design";
+import { colors, radii, spacing } from "../theme/design";
 
 export default function MessageBubble({
     message,
@@ -15,53 +15,63 @@ export default function MessageBubble({
             style={[
                 styles.container,
                 {
-                    flexDirection: "row",
                     alignSelf: isUser ? "flex-end" : "flex-start",
                 },
             ]}
         >
-            {!isUser && showAvatar && (
-                <View style={[styles.avatar, { backgroundColor: avatarColor }]}>
-                    <Text style={styles.avatarText}>{avatarText}</Text>
-                </View>
-            )}
+            <View style={styles.row}>
+                {!isUser && showAvatar && (
+                    <View
+                        style={[
+                            styles.avatar,
+                            { backgroundColor: avatarColor, marginLeft: 8 },
+                        ]}
+                    >
+                        <Text style={styles.avatarText}>{avatarText}</Text>
+                    </View>
+                )}
 
-            <View
-                style={[
-                    styles.bubble,
-                    {
-                        backgroundColor: isUser
-                            ? colors.userBubble
-                            : colors.botBubble,
-                    },
-                ]}
-            >
-                <Text
-                    style={{ color: isUser ? colors.textUser : colors.textBot }}
-                >
-                    {message.text}
-                </Text>
-            </View>
-
-            {isUser && showAvatar && (
                 <View
                     style={[
-                        styles.avatar,
-                        { backgroundColor: avatarColor, marginLeft: 6 },
+                        styles.bubble,
+                        {
+                            backgroundColor: isUser
+                                ? colors.userBubble
+                                : colors.botBubble,
+                            marginLeft: isUser ? 40 : 8,
+                            marginRight: isUser ? 8 : 40,
+                        },
                     ]}
                 >
-                    <Text style={styles.avatarText}>{avatarText}</Text>
-                </View>
-            )}
+                    <Text
+                        style={{
+                            color: isUser ? colors.textUser : colors.textBot,
+                        }}
+                    >
+                        {message.text}
+                    </Text>
 
-            {showTimestamp && (
-                <Text style={styles.timestamp}>
-                    {new Date(message.createdAt).toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                    })}
-                </Text>
-            )}
+                    {showTimestamp && (
+                        <Text style={styles.timestampInside}>
+                            {new Date(message.createdAt).toLocaleTimeString(
+                                [],
+                                { hour: "2-digit", minute: "2-digit" }
+                            )}
+                        </Text>
+                    )}
+                </View>
+
+                {isUser && showAvatar && (
+                    <View
+                        style={[
+                            styles.avatar,
+                            { backgroundColor: avatarColor, marginRight: 8 },
+                        ]}
+                    >
+                        <Text style={styles.avatarText}>{avatarText}</Text>
+                    </View>
+                )}
+            </View>
         </View>
     );
 }
@@ -69,6 +79,9 @@ export default function MessageBubble({
 const styles = StyleSheet.create({
     container: {
         marginVertical: spacing.messageMargin,
+    },
+    row: {
+        flexDirection: "row",
         alignItems: "flex-end",
     },
     bubble: {
@@ -76,10 +89,12 @@ const styles = StyleSheet.create({
         borderRadius: radii.bubble,
         maxWidth: "80%",
     },
-    timestamp: {
+    timestampInside: {
         fontSize: 10,
-        color: "#999",
-        marginTop: 2,
+        marginTop: 6,
+        alignSelf: "flex-end",
+        color: "#666",
+        opacity: 0.75,
     },
     avatar: {
         width: 28,
