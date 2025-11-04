@@ -25,7 +25,7 @@ export default function ChatScreen() {
     const [messages, setMessages] = useState([
         {
             _id: 1,
-            text: "Hello, I am Graphland Bot. How can I help you?",
+            text: "Hello, I am Bot. How can I help you?",
             createdAt: new Date(),
             userId: 2,
         },
