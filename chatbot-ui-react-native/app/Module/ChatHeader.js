@@ -9,7 +9,7 @@ export default function ChatHeader() {
         <View style={[styles.container, { height: headerHeight + insets.top }]}>
             <StatusBar barStyle="light-content" backgroundColor="#a577eeff" />
             <View style={[styles.inner]}>
-                <Text style={styles.title}>Graphland Chat</Text>
+                <Text style={styles.title}>Chatbot</Text>
             </View>
         </View>
     );
